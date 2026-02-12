@@ -19,25 +19,53 @@ lib/
 prisma/
   schema.prisma
   seed.ts
+scripts/
+  start-icon.mjs
+GRC-Lite-Start.bat
+GRC-Lite-Start.command
 Dockerfile
 docker-compose.yml
 .env.example
 ```
 
-## Local run
+## Run via icon (one-click)
+
+### Windows
+1. Clone/open project folder.
+2. Double-click `GRC-Lite-Start.bat`.
+3. Optional: create desktop shortcut for this `.bat` file.
+
+### macOS/Linux
+1. Open project folder.
+2. Double-click `GRC-Lite-Start.command` (or run it in terminal).
+3. Optional: create desktop shortcut for this file.
+
+What launcher does automatically:
+- creates `.env` from `.env.example` if missing
+- starts PostgreSQL container
+- installs npm dependencies
+- runs Prisma generate + `db push`
+- runs seed
+- starts dev server on `http://localhost:3000`
+
+## Local run (manual)
 
 1. Copy env:
    ```bash
    cp .env.example .env
    ```
-2. Install deps:
+2. For local app + docker db, use localhost DB host in `.env`:
+   ```env
+   DATABASE_URL="postgresql://postgres:postgres@localhost:5432/grclite?schema=public"
+   ```
+3. Install deps:
    ```bash
    npm install
    ```
-3. Start PostgreSQL (Docker) and app (local):
+4. Start PostgreSQL (Docker) and app (local):
    ```bash
    docker compose up -d db
-   npx prisma migrate dev
+   npx prisma db push
    npm run prisma:seed
    npm run dev
    ```
