@@ -7,85 +7,64 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="desktop-bg"></div>
-    <main class="desktop-shell" role="application" aria-label="ISMS браузерний десктоп">
-      <aside class="dock" aria-label="Панель інструментів">
-        <button class="dock-btn active" data-view="dashboard" title="Дашборд">🏠</button>
-        <button class="dock-btn" data-view="controls" title="Контролі">🛡️</button>
-        <button class="dock-btn" data-view="risks" title="Ризики">⚠️</button>
-        <button class="dock-btn" data-view="tasks" title="Завдання">✅</button>
-      </aside>
-
-      <section class="workspace">
-        <header class="topbar">
-          <div class="brand">
-            <span class="logo">🧭</span>
-            <div>
-              <h1>Platforma ISMS</h1>
-              <p>Браузерний десктоп для повного циклу ISO 27001</p>
-            </div>
-          </div>
-          <div class="status-pill">
-            <span class="dot"></span>
-            Online
-          </div>
-        </header>
-
-        <div class="content" id="view-container"></div>
+    <main class="desktop" role="application" aria-label="ISMS браузерний десктоп">
+      <section class="desktop-icons" aria-label="Іконки робочого столу">
+        <button class="desktop-icon" data-app="dashboard">🏠<span>Огляд</span></button>
+        <button class="desktop-icon" data-app="controls">🛡️<span>Контролі</span></button>
+        <button class="desktop-icon" data-app="risks">⚠️<span>Ризики</span></button>
+        <button class="desktop-icon" data-app="tasks">✅<span>Завдання</span></button>
       </section>
+
+      <section class="windows" id="windows"></section>
+
+      <footer class="taskbar">
+        <div class="taskbar-left">
+          <button id="open-all" class="task-btn">🚀 Відкрити панель ISMS</button>
+        </div>
+        <div class="taskbar-right">
+          <span class="online-dot"></span>
+          <span id="clock"></span>
+        </div>
+      </footer>
     </main>
 
-    <template id="dashboard-template">
-      <section class="grid">
-        <article class="widget">
-          <h2>Клаузи 4–10</h2>
-          <p>Контекст, лідерство, планування, підтримка, операції, оцінка та покращення.</p>
-          <strong>Покриття: 82%</strong>
+    <template id="app-dashboard">
+      <div class="cards">
+        <article class="card">
+          <h3>Клаузи 4–10</h3>
+          <p>Context, Leadership, Planning, Support, Operation, Performance Evaluation, Improvement.</p>
+          <strong>Покриття: 87%</strong>
         </article>
-        <article class="widget">
-          <h2>Додаток A</h2>
-          <p>Інвентар контролів із пріоритезацією та статусами впровадження.</p>
-          <strong>Контролів: 93</strong>
+        <article class="card">
+          <h3>Додаток A</h3>
+          <p>Каталог контролів безпеки з пріоритезацією і дорожньою картою.</p>
+          <strong>Статус: 93 контролі</strong>
         </article>
-        <article class="widget">
-          <h2>Найближчий аудит</h2>
-          <p>Внутрішній аудит процесу управління ризиками.</p>
-          <strong>Через 14 днів</strong>
-        </article>
-      </section>
+      </div>
     </template>
 
-    <template id="controls-template">
-      <section class="list-view">
-        <h2>Контролі ІБ</h2>
-        <ul>
-          <li><span>🔐</span> Управління доступом — <em>Впроваджено</em></li>
-          <li><span>🧾</span> Логування подій — <em>В процесі</em></li>
-          <li><span>📦</span> Резервне копіювання — <em>Заплановано</em></li>
-        </ul>
-      </section>
+    <template id="app-controls">
+      <ul class="list">
+        <li>🔐 Контроль доступу — <em>впроваджено</em></li>
+        <li>🧾 Логування подій — <em>в процесі</em></li>
+        <li>📦 Резервне копіювання — <em>заплановано</em></li>
+      </ul>
     </template>
 
-    <template id="risks-template">
-      <section class="list-view">
-        <h2>Реєстр ризиків</h2>
-        <ul>
-          <li><span>🔥</span> Втрата даних через людський фактор — <em>Високий</em></li>
-          <li><span>🌐</span> Компрометація облікових записів — <em>Середній</em></li>
-          <li><span>⚡</span> Недоступність сервісів — <em>Середній</em></li>
-        </ul>
-      </section>
+    <template id="app-risks">
+      <ul class="list">
+        <li>🔥 Втрата даних — <em>високий</em></li>
+        <li>🌐 Компрометація облікових записів — <em>середній</em></li>
+        <li>⚡ Недоступність сервісів — <em>середній</em></li>
+      </ul>
     </template>
 
-    <template id="tasks-template">
-      <section class="list-view">
-        <h2>Поточні завдання</h2>
-        <ul>
-          <li><span>📋</span> Оновити SOA документ</li>
-          <li><span>👥</span> Провести тренінг співробітників</li>
-          <li><span>🧪</span> Перевірити план відновлення</li>
-        </ul>
-      </section>
+    <template id="app-tasks">
+      <ul class="list">
+        <li>📋 Оновити Statement of Applicability</li>
+        <li>👥 Провести awareness-тренінг</li>
+        <li>🧪 Перевірити DR-план</li>
+      </ul>
     </template>
 
     <script src="app.js"></script>
