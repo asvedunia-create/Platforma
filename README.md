@@ -41,6 +41,8 @@ docker-compose.yml
 3. Optional: create desktop shortcut for this file.
 
 What launcher does automatically:
+- checks Node.js and Docker availability
+- runs `node scripts/start-icon.mjs` directly (no PowerShell `npm.ps1` blocker)
 - creates `.env` from `.env.example` if missing
 - starts PostgreSQL container
 - installs npm dependencies
