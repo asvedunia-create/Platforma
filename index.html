@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Platforma ISMS Desktop</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="desktop-bg"></div>
+    <main class="desktop-shell" role="application" aria-label="ISMS браузерний десктоп">
+      <aside class="dock" aria-label="Панель інструментів">
+        <button class="dock-btn active" data-view="dashboard" title="Дашборд">🏠</button>
+        <button class="dock-btn" data-view="controls" title="Контролі">🛡️</button>
+        <button class="dock-btn" data-view="risks" title="Ризики">⚠️</button>
+        <button class="dock-btn" data-view="tasks" title="Завдання">✅</button>
+      </aside>
+
+      <section class="workspace">
+        <header class="topbar">
+          <div class="brand">
+            <span class="logo">🧭</span>
+            <div>
+              <h1>Platforma ISMS</h1>
+              <p>Браузерний десктоп для повного циклу ISO 27001</p>
+            </div>
+          </div>
+          <div class="status-pill">
+            <span class="dot"></span>
+            Online
+          </div>
+        </header>
+
+        <div class="content" id="view-container"></div>
+      </section>
+    </main>
+
+    <template id="dashboard-template">
+      <section class="grid">
+        <article class="widget">
+          <h2>Клаузи 4–10</h2>
+          <p>Контекст, лідерство, планування, підтримка, операції, оцінка та покращення.</p>
+          <strong>Покриття: 82%</strong>
+        </article>
+        <article class="widget">
+          <h2>Додаток A</h2>
+          <p>Інвентар контролів із пріоритезацією та статусами впровадження.</p>
+          <strong>Контролів: 93</strong>
+        </article>
+        <article class="widget">
+          <h2>Найближчий аудит</h2>
+          <p>Внутрішній аудит процесу управління ризиками.</p>
+          <strong>Через 14 днів</strong>
+        </article>
+      </section>
+    </template>
+
+    <template id="controls-template">
+      <section class="list-view">
+        <h2>Контролі ІБ</h2>
+        <ul>
+          <li><span>🔐</span> Управління доступом — <em>Впроваджено</em></li>
+          <li><span>🧾</span> Логування подій — <em>В процесі</em></li>
+          <li><span>📦</span> Резервне копіювання — <em>Заплановано</em></li>
+        </ul>
+      </section>
+    </template>
+
+    <template id="risks-template">
+      <section class="list-view">
+        <h2>Реєстр ризиків</h2>
+        <ul>
+          <li><span>🔥</span> Втрата даних через людський фактор — <em>Високий</em></li>
+          <li><span>🌐</span> Компрометація облікових записів — <em>Середній</em></li>
+          <li><span>⚡</span> Недоступність сервісів — <em>Середній</em></li>
+        </ul>
+      </section>
+    </template>
+
+    <template id="tasks-template">
+      <section class="list-view">
+        <h2>Поточні завдання</h2>
+        <ul>
+          <li><span>📋</span> Оновити SOA документ</li>
+          <li><span>👥</span> Провести тренінг співробітників</li>
+          <li><span>🧪</span> Перевірити план відновлення</li>
+        </ul>
+      </section>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
